@@ -1,4 +1,6 @@
 #include <assert.h>
+#include <stdio.h>
+#include <stdlib.h>
 #include <string.h>
 
 void substr_m(char *src, char *dest, int start, int length) {
@@ -28,4 +30,41 @@ size_t len_m(char *str) {
   for (s = str; *s; ++s)
     ;
   return s - str;
+}
+
+// Converts a string into an array of integers.
+// Args: string, integer
+// Modifies: elements
+// Returns: integer array
+int* get_array_from_csv_int(char* str, int* elements) {
+  char *copy=strdup(str);
+  char *token=strtok(copy, ",");
+  int count = 0;
+  while(token != NULL) {
+    count++;
+    token = strtok(NULL, ",");
+  }
+  *elements = count;
+
+  int *arr = malloc(sizeof(int) * count);
+  if (arr==NULL){
+    free(copy);
+    return NULL;
+  }
+
+  // need to reset the string b/c \0 replaced delims
+  strcpy(copy,str);
+  token=strtok(copy, ",");
+  int i = 0;
+  while(token != NULL) {
+    arr[i] = atoi(token);
+    /*printf("token: %s\n", token);*/
+    /*printf("arr[%d]: %d\n", i, arr[i]);*/
+    /*sscanf(token, "%d,", arr[i++]);*/
+    i++;
+    token = strtok(NULL, ",");
+  }
+
+  free(copy);
+  return arr;
 }
