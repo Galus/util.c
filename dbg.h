@@ -60,4 +60,19 @@ void print_hex_memory(const void *ptr, size_t n) {
   printf("\n");
 }
 
+void print_intarray(int *array, int size, size_t pos, size_t elements) {
+  if (array == NULL || size <= 0) {
+    printf("Array is empty or NULL.\n");
+    return;
+  }
+  int max_idx = pos + elements;
+  for (int i = pos; i < size && i < max_idx; i++) {
+    printf("%d", array[i]);
+    if (i < size-1) {
+      printf(",");
+    }
+  }
+  printf("\n");
+}
+
 #endif // DBG_H
