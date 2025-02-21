@@ -60,6 +60,19 @@ void print_hex_memory(const void *ptr, size_t n) {
   printf("\n");
 }
 
+void print_linesarray(char **array, int lines);
+
+void print_linesarray(char **array, int lines) {
+  if (array == NULL || lines <= 0) {
+    printf("Array is empty or NULL.\n");
+    return;
+  }
+  for (int i = 0; i < lines; i++) {
+    printf("%s\n", array[i]);
+  }
+  printf("\n");
+}
+
 void print_intarray(int *array, int size, size_t pos, size_t elements) {
   if (array == NULL || size <= 0) {
     printf("Array is empty or NULL.\n");
