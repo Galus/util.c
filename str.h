@@ -7,6 +7,27 @@
 #include <stdlib.h>
 #include <string.h>
 
+typedef struct {
+  char *data;
+  size_t length;
+} String;
+
+String createString(char *string) {
+  return (String){ string, strlen(string)};
+}
+
+void printString(String str) {
+  printf("%s\n", str.data);
+}
+
+char* getString(String str) {
+  return str.data;
+}
+
+size_t getStringLength(String str) {
+  return str.length;
+}
+
 int* get_array_from_csv_int(char* str, int* length);
 size_t len_m(char *str);
 void strncpy_m(char *src, char *dest, int start, int length);

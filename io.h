@@ -20,15 +20,15 @@ char **file_to_arr(char *file_name, size_t max_file_size, size_t max_rows,
 
   char **lines;
 
-  printf("Called file_to_array with...\n");
-  printf("file_name: %s\n", file_name);
-  printf("max_file_size: %zu\n", max_file_size);
-  printf("***lines: %p\n", lines);
-  printf("max_rows: %zu\n", max_rows);
-  printf("max_cols: %zu\n", max_cols);
-  printf("lines_rows: %d\n", *lines_rows);
-
-  printf("Allocating space for lines.\n");
+  /*printf("Called file_to_array with...\n");*/
+  /*printf("file_name: %s\n", file_name);*/
+  /*printf("max_file_size: %zu\n", max_file_size);*/
+  /*printf("***lines: %p\n", lines);*/
+  /*printf("max_rows: %zu\n", max_rows);*/
+  /*printf("max_cols: %zu\n", max_cols);*/
+  /*printf("lines_rows: %d\n", *lines_rows);*/
+  /**/
+  /*printf("Allocating space for lines.\n");*/
   lines = malloc(sizeof(char *) * max_rows);
   if (lines == NULL) {
     perror("malloc failed");
@@ -81,10 +81,10 @@ char **file_to_arr(char *file_name, size_t max_file_size, size_t max_rows,
     count++;
   }
 
-  printf("Closing file handle\n");
+  /*printf("Closing file handle\n");*/
   fclose(file);
 
-  printf("Modfying line_rows value to be count\n");
+  /*printf("Modfying line_rows value to be count\n");*/
   *lines_rows = count;
   return lines;
 }
