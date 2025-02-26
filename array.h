@@ -96,7 +96,9 @@ void printIntArray(Array arr) {
     if (i < arr.length - 1) {
       printf(",");
     }
-    printf("\n");
+    if (i == arr.length - 1){
+      printf("\n");
+    }
   }
 }
 
