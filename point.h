@@ -4,6 +4,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 
+// {int x, int y}
 typedef struct {
   int x;
   int y;
@@ -18,7 +19,7 @@ typedef struct {
 Point createPoint(int x, int y) { return (Point){x, y}; }
 
 PointArray createPointArray(int capacity) {
-  Point *data = calloc(capacity, sizeof(Point));
+  Point *data = (Point *)calloc(capacity, sizeof(Point));
   int length = 0;
   return (PointArray){data, length, capacity};
 }
